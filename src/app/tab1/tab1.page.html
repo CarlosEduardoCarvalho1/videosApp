@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
     <ion-title>
-      Vídeos APP
+      {{titulo}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,25 +12,30 @@
 <ion-searchbar  placeholder="buscar..."></ion-searchbar>
 <ion-list>
 
-  <ion-item-sliding>
+  <ion-item-sliding *ngFor="let filme of listaVideos">
 
 
 <ion-item lines="full">
   <ion-thumbnail slot="start">
-    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kn72J6BFcN71VYOl8sTVeo7x9ph.jpg">
+
+    <img
+
+    [src]="filme.cartaz"/>
+
+
   </ion-thumbnail>
   <ion-label class="ion-text-wrap">
 
    <div>
-     <h1>Army of the Dead: Invasão em Las Vegas (2021)</h1>
-     <p>14/05/2021  </p>
-     <p>Ação, Terror, Thriller, Crime</p>
+     <h1>{{filme.nome}}</h1>
+     <p>{{filme.lancamento}} - {{filme.duracao}} </p>
+     <ion-badge color="light" *ngFor="let genero of filme.generos">{{genero}}</ion-badge>
 
     </div>
 
   </ion-label>
     <ion-chip color="success">
-      <ion-label>76%</ion-label>
+      <ion-label>{{filme.classificacao}}</ion-label>
     </ion-chip>
 
 
@@ -47,78 +52,6 @@
 </ion-item-options>
 </ion-item-sliding>
 
-
-
-<ion-item-sliding>
-
-  <ion-item lines="full">
-    <ion-thumbnail slot="start">
-      <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/q8CJj6zMwi53yxojscnVmhMKYKb.jpg">
-    </ion-thumbnail>
-    <ion-label class="ion-text-wrap">
-
-     <div>
-       <h1>Perigo na Montanha (2018))</h1>
-       <p>02/02/2018 </p>
-       <p>Drama, Ação, Thriller</p>
-
-      </div>
-
-    </ion-label>
-      <ion-chip color="warning">
-        <ion-label>62%</ion-label>
-      </ion-chip>
-
-
-  </ion-item>
-
-  <ion-item-options side="end">
-    <ion-item-option color="laranja" (click)="exibirAlertaFavorito()">
-
-
-        <ion-icon slot="icon-only" name="star"></ion-icon>
-
-
-    </ion-item-option>
-  </ion-item-options>
-  </ion-item-sliding>
-
-
-
-
-  <ion-item-sliding>
-
-    <ion-item lines="full">
-      <ion-thumbnail slot="start">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/Aej7rR73kpAKce6XXBLeqijAwPD.jpg">
-      </ion-thumbnail>
-      <ion-label class="ion-text-wrap">
-
-       <div>
-         <h1>Esquadrão Trovão (2021))</h1>
-         <p>09/04/2021 </p>
-         <p>Ação, Aventura, Comédia </p>
-
-        </div>
-
-      </ion-label>
-        <ion-chip color="warning">
-          <ion-label>62%</ion-label>
-        </ion-chip>
-
-
-    </ion-item>
-
-    <ion-item-options side="end">
-      <ion-item-option color="roxo" (click)="exibirAlertaFavorito()">
-
-
-          <ion-icon slot="icon-only" name="star"></ion-icon>
-
-
-      </ion-item-option>
-    </ion-item-options>
-    </ion-item-sliding>
 
 
 </ion-list>
