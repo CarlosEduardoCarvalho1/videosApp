@@ -1,32 +1,30 @@
-img {
-
-  border-radius: 50px;
-
-}
+ion-item{
+    ion-thumbnail {
 
 
-h4{
-
-font-weight: bold;
-color:blue;
-text-align: center;
-
+   height:100%;
+   margin-inline-end: 10px;
 
 }
 
-p{
+h1 {
 
-text-align: center;
-
-}
-
-.teste{
-
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color:red;
-  font-weight:bold;
-  text-align: center;
-
+  font-weight: bold;
+  font-size: 0.8rem;
 
 }
 
+p {
+
+   font-size: 0.6rem;
+
+}
+
+p+p{
+
+  color:#8a8a8a;
+
+
+
+}
+}
