@@ -30,7 +30,12 @@ p+p{
 ionic-chip{
 
 
-  padding-inline: 3 px;
+  padding-inline: 0 px;
+  height:48px;
+  width:48px;
+  border-radius:50px;
+   justify-content: center;
+   border-width: 3px;
 }
 
 ion-badge{

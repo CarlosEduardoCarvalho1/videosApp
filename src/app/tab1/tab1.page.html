@@ -9,33 +9,31 @@
 <ion-content [fullscreen]="true" color="light">
 
   <!-- Default Searchbar -->
-<ion-searchbar  placeholder="buscar..."></ion-searchbar>
-<ion-list>
+<ion-searchbar (ion-change)="buscarFilmes($event)" placeholder="buscar..."></ion-searchbar>
+<ion-list  *ngIf="listaFilmes">
 
-  <ion-item-sliding *ngFor="let filme of listaVideos">
+  <ion-item-sliding *ngFor="let filme of listaFilmes.results">
 
 
 <ion-item lines="full" (click)="exibirFilme(filme)">
   <ion-thumbnail slot="start">
 
-    <img
-
-    [src]="filme.cartaz"/>
+    <img src="https://www.themoviedb.org/t/p/w500/{{filme.poster_path}}"/>
 
 
   </ion-thumbnail>
   <ion-label class="ion-text-wrap">
 
    <div>
-     <h1>{{filme.nome}}</h1>
-     <p>{{filme.lancamento}} - {{filme.duracao}} </p>
-     <ion-badge color="light" *ngFor="let genero of filme.generos">{{genero}}</ion-badge>
+     <h1>{{filme.title}}</h1>
+     <p>{{filme.release_date}} </p>
+     <ion-badge color="light" *ngFor="let genero of filme.genre_ids">{{genero}}</ion-badge>
 
     </div>
 
   </ion-label>
     <ion-chip color="success">
-      <ion-label>{{filme.classificacao}}</ion-label>
+      <ion-label>{{filme.vote_average}}</ion-label>
     </ion-chip>
 
 

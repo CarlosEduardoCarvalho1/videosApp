@@ -15,7 +15,7 @@ export class DadosFilmePage implements OnInit {
 
   ngOnInit() {
 
-    this.filme= this.dadosService.pegarDados('filme');
+    this.filme = this.dadosService.pegarDados('filme');
     console.log('Filme enviado', this.filme);
 
 

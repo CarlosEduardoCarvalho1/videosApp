@@ -1,3 +1,5 @@
+import { IFilmeApi, IListaFilmes } from './../models/IFilmeAPI.model';
+import { FilmeService } from './../services/filme.service';
 import { IFilme } from './../models/IFilme.model';
 import { DadosService } from './../services/dados.service';
 import { Component } from '@angular/core';
@@ -11,7 +13,7 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  titulo = 'Videos';
+  titulo = 'Filmes';
   listaVideos: IFilme[] = [
     {
       nome: 'Army of the Dead: Invasão em Las Vegas (2021)',
@@ -68,17 +70,48 @@ export class Tab1Page {
 
   ];
 
+  listaFilmes: IListaFilmes;
+
   constructor(
     public alertController: AlertController,
     public toastController: ToastController,
     public dadosService: DadosService,
+    public filmeService:  FilmeService,
     public route: Router
-  ) {}
+  ) { }
 
-  exibirFilme(filme: IFilme) {
+    exibirFilme(filme: IFilme){
+
     this.dadosService.guardarDados('filme', filme);
+
     this.route.navigateByUrl('/dados-filme');
+    }
+
+  buscarFilmes(evento: any){
+
+          console.log(evento.target.value);
+          const busca = evento.target.value;
+
+          if(busca && busca.trim() !== ''){
+
+
+           this.filmeService.buscarFilmes(busca).subscribe(dados=>{
+
+             console.log(dados);
+             this.listaFilmes = dados;
+
+
+
+
+
+           });
+
+
+          }
+
+
   }
+
 
   async exibirAlertaFavorito() {
     const alert = await this.alertController.create({

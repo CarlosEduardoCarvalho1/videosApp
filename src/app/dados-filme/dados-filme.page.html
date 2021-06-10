@@ -1,5 +1,12 @@
 <ion-header>
   <ion-toolbar color="dark">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+
+
     <ion-title>Dados do Filme</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +17,7 @@
   <ion-card *ngIf="filme">
     <ion-card-header>
 
-      <img [src] = "filme.cartaz"/>
+      <img [src]="filme.cartaz"/>
 
     </ion-card-header>
 
