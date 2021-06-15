@@ -17,7 +17,7 @@ export class DadosService {
 
     if (index) {
 
-       this.dados [index] = dados;
+       this.dados[index] = dados;
 
        return true ;
     }
