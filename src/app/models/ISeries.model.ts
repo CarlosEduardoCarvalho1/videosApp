@@ -5,6 +5,7 @@ export interface ISeries{
     classificacao: number;
     cartaz: string;
     generos: string[];
+    pagina?: string;
 
 
 

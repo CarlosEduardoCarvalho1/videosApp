@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 import { ISeries } from '../models/ISeries.model';
+import { DadosService } from '../services/dados.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +11,7 @@ import { ISeries } from '../models/ISeries.model';
 })
 export class Tab2Page {
 
-  titulo = 'Series';
+  titulo:'Series';
 
 
 
@@ -20,7 +23,7 @@ export class Tab2Page {
       classificacao: 81,
       cartaz:
         'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ukR0MkCQE6IylzBPd61txJi1L3E.jpg',
-      generos: ['Drama', 'Sci-Fi & Fantasy'],
+      generos: ['Drama', 'Sci-Fi','Fantasy'],
     
     },
 
@@ -42,7 +45,7 @@ export class Tab2Page {
       classificacao: 77,
       cartaz:
         'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wHa6KOJAoNTFLFtp7wguUJKSnju.jpg',
-      generos: ['Drama', 'Sci-Fi & Fantasy'],
+      generos: ['Drama', 'Sci-Fi ', 'Fantasy'],
     
     },
     {
@@ -51,8 +54,8 @@ export class Tab2Page {
       duracao: '50m',
       classificacao: 78,
       cartaz:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kn72J6BFcN71VYOl8sTVeo7x9ph.jpg',
-      generos: ['Sci-Fi & Fantasy', 'Action & Adventure','Drama','War & Politics'],
+        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oF9njYCN6lBdrsi6wfulcxTggvn.jpg',
+      generos: ['Sci-Fi','Fantasy', 'Action','Adventure','Drama','War' ,'Politics'],
         
     
     },
@@ -70,6 +73,52 @@ export class Tab2Page {
   ];
 
 
-  constructor() {}
+  constructor(
+    public alertController: AlertController,
+    public toastController: ToastController,
+    public dadosService: DadosService,
+    public route: Router) {}
 
+
+    exibirSerie(serie: ISeries) {
+
+      this.dadosService.guardarDados('Series', serie);
+      
+  
+      this.route.navigateByUrl('/dados-serie');
+    }
+
+    async exibirAlertaFavorito() {
+      const alert = await this.alertController.create({
+        header: 'Alerta',
+        message: 'Deseja Realmente Favoritar a Série!!!',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+  
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            },
+          },
+          {
+            text: 'Sim Favoritar',
+            handler: () => {
+              this.apresentarToast();
+            },
+          },
+        ],
+      });
+      await alert.present();
+    }
+  
+    async apresentarToast() {
+      const toast = await this.toastController.create({
+        message: 'Serie adicionado aos favoritos.',
+        duration: 2000,
+        color: 'success',
+      });
+      toast.present();
+
+}
 }
