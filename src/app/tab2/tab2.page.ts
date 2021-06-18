@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { ISeries } from '../models/ISeries.model';
@@ -9,13 +9,13 @@ import { DadosService } from '../services/dados.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page  {
 
   titulo:'Series';
 
 
 
-  listaSeries: ISeries[]=[
+  listaSerie: ISeries[]=[
     {
       nome: 'Loki (2021)',
   
@@ -73,6 +73,8 @@ export class Tab2Page {
   ];
 
 
+
+
   constructor(
     public alertController: AlertController,
     public toastController: ToastController,
@@ -83,9 +85,10 @@ export class Tab2Page {
     exibirSerie(serie: ISeries) {
 
       this.dadosService.guardarDados('Series', serie);
-      
+  
   
       this.route.navigateByUrl('/dados-serie');
+
     }
 
     async exibirAlertaFavorito() {
@@ -121,4 +124,8 @@ export class Tab2Page {
       toast.present();
 
 }
+
+
+
+
 }

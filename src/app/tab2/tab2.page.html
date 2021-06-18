@@ -8,16 +8,15 @@
 
 <ion-content [fullscreen]="true" color="light">
 
-  <!-- Default Searchbar -->
-  <ion-searchbar (ionChange)="buscarFilmes($event)" placeholder="buscar..."></ion-searchbar>
+ 
 
 
   <ion-list>
 
-    <ion-item-sliding *ngFor="let serie of listaSeries">
+    <ion-item-sliding *ngFor="let serie of listaSerie">
 
 
-      <ion-item lines="full" (click)="exibirSerie(serie)"> 
+      <ion-item lines= "none" (click)="exibirSerie(serie)">
 
         <ion-thumbnail slot="start">
           <img [src]="serie.cartaz">
@@ -31,7 +30,7 @@
 
             <p> Duração: - {{serie.duracao}}</p>
 
-            <ion-badge color="light" *ngFor="let genero of serie.generos">{{genero}}</ion-badge>
+            <ion-badge color="light" *ngFor="let serie of serie.generos">{{generos}}</ion-badge>
 
 
 
