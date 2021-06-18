@@ -16,7 +16,7 @@ export class DadosSeriePage implements OnInit {
 
   ngOnInit() {
 
-    this.serie = this.dadosService.pegarDados('serie');
+    this.serie = this.dadosService.pegarDados1('serie');
     console.log('serie enviada', this.serie);
   }
 

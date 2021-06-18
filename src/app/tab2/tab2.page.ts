@@ -11,11 +11,10 @@ import { DadosService } from '../services/dados.service';
 })
 export class Tab2Page  {
 
-  titulo:'Series';
+  titulo = 'Series';
 
 
-
-  listaSerie: ISeries[]=[
+  listaSerie: ISeries[] = [
     {
       nome: 'Loki (2021)',
   
@@ -84,7 +83,7 @@ export class Tab2Page  {
 
     exibirSerie(serie: ISeries) {
 
-      this.dadosService.guardarDados('Series', serie);
+      this.dadosService.guardarDados1('serie', serie);
   
   
       this.route.navigateByUrl('/dados-serie');

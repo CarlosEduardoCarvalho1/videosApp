@@ -5,7 +5,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Dados Serie</ion-title>
+    <ion-title>Series</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,11 +21,14 @@
   
     <ion-card-content>
      
-    <h1>{{serie.nome}}</h1>
-    <p>{{serie.duracao}}</p>
+    <h1>Nome Serie :{{serie.nome}}</h1>
+    <h1>Duração: {{serie.duracao}}</h1>
+ 
+  </ion-card-content>
 
-    <ion-chip color="success">{{serie.classificacao}} </ion-chip></h1>
-    </ion-card-content>
+ 
+    <ion-chip color="success">{{serie.classificacao}} %</ion-chip>
+    
 
     <ion-item>
 

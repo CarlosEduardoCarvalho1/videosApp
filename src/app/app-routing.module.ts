@@ -15,6 +15,13 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
 
+  
+  
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+
   {
     path: 'dados-filme',
     loadChildren: () => import('./dados-filme/dados-filme.module').then( m => m.DadosFilmePageModule)
@@ -24,12 +31,6 @@ const routes: Routes = [
     path: 'dados-serie',
     loadChildren: () => import('./dados-serie/dados-serie.module').then( m => m.DadosSeriePageModule)
   },
-  
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-
 
 
 ];

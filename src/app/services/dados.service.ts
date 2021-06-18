@@ -7,6 +7,8 @@ export class DadosService {
 
   private dados: any = [];
 
+  private dados1: any = [];
+
 
 
   constructor() { }
@@ -48,6 +50,40 @@ export class DadosService {
 
         return delete this.dados[index];
       }
+
+      guardarDados1(index: string , dados1: any): boolean{
+
+
+        if (index) {
+    
+           this.dados1[index] = dados1;
+    
+           return true ;
+        }
+          else{
+    
+             return false;
+          }
+    
+    
+        }
+    
+    
+         pegarDados1(index: string): any {
+    
+          if(index) {
+    
+                  return this.dados1[index];
+    
+    
+          }else{
+    
+    
+                      return null;
+          }
+        }
+        
+    
 
      }
 
